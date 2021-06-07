@@ -15,41 +15,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/nonvegthali1"
-        android:scaleType="centerCrop"
-        android:stateListAnimator="@null"
-        android:background="@drawable/bg_individual_service_image"/>
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/service_provider_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="200dp" />
+        android:fontFamily="@font/roboto_bold"
+        android:text="Lunch and dinner veg tiffin box"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.306" />
 
     <TextView
         android:id="@+id/service_name_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="260dp" />
+        android:layout_width="359dp"
+        android:layout_height="172dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        android:textAlignment="textStart"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
 
     <TextView
         android:id="@+id/price_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="322dp" />
+        android:fontFamily="@font/roboto_bold"
+        android:text="Price 2000₹ / 30 days"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64" />
 
     <Button
         android:id="@+id/subscribe_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="167dp"
-        tools:layout_editor_absoluteY="423dp" />
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bg_button_general"
+        android:text="@string/pay_to_subscribe"
+        android:textColor="@color/colorText"
+        android:textSize="18sp"
+        android:fontFamily="@font/roboto_bold"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
