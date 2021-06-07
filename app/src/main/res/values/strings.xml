@@ -19,4 +19,8 @@
     <string name="renew">Renew</string>
     <string name="resume_service">Resume service</string>
     <string name="pay_to_subscribe">Pay to subscribe</string>
+    <string name="veg">Veg</string>
+    <string name="non_veg">Non veg</string>
+    <string name="availability">Availability</string>
+    <string name="delivery_timings">Delivery timings</string>
 </resources>
