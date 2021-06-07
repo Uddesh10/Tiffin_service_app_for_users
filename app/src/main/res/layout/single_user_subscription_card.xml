@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:elevation="10dp"
+    android:layout_margin="15dp"
+    android:background="@drawable/bg_single_user_subscription_card">
+
+    <TextView
+        android:id="@+id/service_provider_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Hula box tiffin service"
+        android:textColor="@color/colorText"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/service_name_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/service_provider_logo_imageview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/service_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="26dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Lunch and dinner Vegetarian tiffin box"
+        android:textColor="@color/colorText"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/not_active_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/service_provider_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/service_provider_name_textview" />
+
+    <ImageView
+        android:id="@+id/service_provider_logo_imageview"
+        android:layout_width="98dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.487"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/not_active_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="11dp"
+        android:drawableEnd="@drawable/ic_not_active"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Not Active"
+        android:textColor="@color/colorDanger"
+        android:textSize="18sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/service_provider_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/service_name_textview" />
+    <TextView
+        android:id="@+id/active_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="11dp"
+        android:drawableEnd="@drawable/ic_active"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Active"
+        android:visibility="gone"
+        android:textColor="@color/colorSuccess"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/service_provider_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/service_name_textview" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
