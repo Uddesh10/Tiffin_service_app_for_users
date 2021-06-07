@@ -13,20 +13,27 @@ import com.uddesh.tiffinserviceapp.R;
 public class IndividualServiceActivity extends AppCompatActivity {
 
     ImageView tab_imageview;
-    TextView textView;
-    Button button;
+    TextView service_provider_name_textview ,service_name_textview, price_textview;
+    Button subscribe_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_service);
 
         tab_imageview = findViewById(R.id.tab_imageView);
-        textView = findViewById(R.id.service_provider_name_textview);
-        textView = findViewById(R.id.service_name_textview);
-        textView = findViewById(R.id.price_textview);
-        button = findViewById(R.id.subscribe_button);
+        service_provider_name_textview = findViewById(R.id.service_provider_name_textview);
+        service_name_textview = findViewById(R.id.service_name_textview);
+        price_textview= findViewById(R.id.price_textview);
+        subscribe_button = findViewById(R.id.subscribe_button);
 
-        Button.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+
+        subscribe_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
