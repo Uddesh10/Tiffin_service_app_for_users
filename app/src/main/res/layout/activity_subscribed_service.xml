@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary" >
 
 
-    <ImageView
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
         android:id="@+id/tab_imageView"
         android:layout_width="0dp"
         android:layout_height="162dp"
@@ -16,10 +16,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/nonvegthali1"
         android:scaleType="centerCrop"
-        android:stateListAnimator="@null"
-        android:background="@drawable/bg_individual_service_image"/>
+        app:siShape="@drawable/bg_tab_image"/>
 
 
     <ImageView
@@ -32,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.359"
-        tools:srcCompat="@tools:sample/avatars" />
+         />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +52,6 @@
         android:layout_width="41dp"
         android:layout_height="42dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="28"
         android:textColor="@color/colorText"
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -85,7 +82,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Hula box tiffin service"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +96,6 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:fontFamily="@font/roboto_bold"
-        android:text="Lunch and dinner vegetarian tiffin box"
         android:textColor="@color/colorText"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +110,6 @@
         android:layout_width="226dp"
         android:layout_height="221dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         android:textAlignment="textStart"
         android:textColor="@color/colorText"
         android:textSize="12sp"

@@ -23,4 +23,6 @@
     <string name="non_veg">Non veg</string>
     <string name="availability">Availability</string>
     <string name="delivery_timings">Delivery timings</string>
+    <string name="not_active">Not Active</string>
+    <string name="active">Active</string>
 </resources>

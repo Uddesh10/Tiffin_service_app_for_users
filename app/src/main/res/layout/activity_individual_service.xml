@@ -4,25 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.IndividualServiceActivity">
+    tools:context=".Activity.IndividualServiceActivity"
+    android:background="@color/colorPrimary">
 
-    <ImageView
-        android:id="@+id/tab_imageView"
-        android:layout_width="0dp"
-        android:layout_height="162dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/nonvegthali1"
-        android:scaleType="centerCrop"/>
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+    android:id="@+id/tab_imageView"
+    android:layout_width="0dp"
+    android:layout_height="162dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:scaleType="centerCrop"
+    app:siShape="@drawable/bg_tab_image"/>
 
     <TextView
         android:id="@+id/service_provider_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Lunch and dinner veg tiffin box"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,6 @@
         android:layout_width="359dp"
         android:layout_height="172dp"
         android:fontFamily="@font/roboto_regular"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         android:textAlignment="textStart"
         android:textColor="@color/colorText"
         android:textSize="14sp"
@@ -53,7 +52,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Price 2000₹ / 30 days"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

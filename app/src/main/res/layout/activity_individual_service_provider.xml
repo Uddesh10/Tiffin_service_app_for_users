@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.IndividualServiceProviderActivity"
     android:background="@color/colorPrimary">
-    <ImageView
+    <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
         android:id="@+id/tab_imageView"
         android:layout_width="0dp"
         android:layout_height="162dp"
@@ -14,10 +14,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/nonvegthali1"
         android:scaleType="centerCrop"
-        android:stateListAnimator="@null"
-        android:background="@drawable/bg_individual_service_image"/>
+        app:siShape="@drawable/bg_tab_image"/>
 
     <ImageView
         android:id="@+id/service_logo_imageview"
@@ -28,15 +26,13 @@
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.316"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.316"/>
 
     <TextView
         android:id="@+id/distance_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_regular"
-        android:text="Distance : 7Km"
         android:textColor="@color/colorText"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Hula box tiffin service"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,7 +92,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Lunch , Dinner"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +106,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Lunch : 12:00 PM - 2:00 PM \nDinner : 8:00 PM - 11:00 PM"
         android:textColor="@color/colorText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -123,6 +116,7 @@
         app:layout_constraintVertical_bias="0.915" />
 
     <TextView
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_regular"
@@ -141,7 +135,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
-        android:text="Contact : 0987654321"
         android:textColor="@color/colorText"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -155,7 +148,7 @@
         android:id="@+id/nonveg_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/vegicon"
+        android:drawableStart="@drawable/nonvegicon"
         android:drawablePadding="5dp"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/non_veg"
@@ -166,8 +159,16 @@
         app:layout_constraintHorizontal_bias="0.604"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333"
-        android:visibility="gone"/>
+        app:layout_constraintVertical_bias="0.333"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/individual_service_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lunch_dinner_textview" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
