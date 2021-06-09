@@ -1,6 +1,7 @@
 package com.uddesh.tiffinserviceapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -8,19 +9,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
+import com.uddesh.tiffinserviceapp.Adapters.ServiceListFragmentRecyclerAdapter;
 import com.uddesh.tiffinserviceapp.R;
 
 public class IndividualServiceProviderActivity extends AppCompatActivity {
     PorterShapeImageView tab_imageView;
     RecyclerView individual_service_recyclerview;
     ImageView service_logo_imageview;
+    ServiceListFragmentRecyclerAdapter serviceListFragmentRecyclerAdapterInstance;
     TextView service_provider_name_textview , veg_textview , nonveg_textvview,distance_textview ,lunch_dinner_textview ,delivery_timings_textview,phone_no_textview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual_service_provider);
         initialiseComponent();
-
     }
 
 
@@ -37,6 +39,9 @@ public class IndividualServiceProviderActivity extends AppCompatActivity {
         veg_textview = findViewById(R.id.veg_textview);
         nonveg_textvview = findViewById(R.id.nonveg_textview);
         individual_service_recyclerview = findViewById(R.id.individual_service_recyclerview);
+        individual_service_recyclerview.setLayoutManager(new LinearLayoutManager( this ,LinearLayoutManager.HORIZONTAL , false));
+        serviceListFragmentRecyclerAdapterInstance = new ServiceListFragmentRecyclerAdapter();
+        individual_service_recyclerview.setAdapter(serviceListFragmentRecyclerAdapterInstance);
     }
 
 

@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.IndividualServiceActivity"/>
-        <activity android:name=".Activity.IndividualServiceProviderActivity"/>
+        <activity android:name=".Activity.SetAddressActivity"></activity>
+        <activity android:name=".Activity.IndividualServiceActivity" />
+        <activity android:name=".Activity.IndividualServiceProviderActivity" />
         <activity android:name=".Activity.SubscribedServiceActivity" />
-        <activity android:name=".Activity.HomePageActivity"/>
+        <activity android:name=".Activity.HomePageActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

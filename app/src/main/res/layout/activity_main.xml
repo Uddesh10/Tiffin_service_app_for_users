@@ -46,7 +46,6 @@
         android:textAllCaps="false"
         android:textColor="@color/colorText"
         android:textSize="18sp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +62,6 @@
         android:textAllCaps="false"
         android:textColor="@color/colorText"
         android:textSize="18sp"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +75,6 @@
         android:text="@string/or"
         android:textColor="@color/colorText"
         android:textSize="16sp"
-        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -101,6 +98,7 @@
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_name_text_view" />
@@ -122,6 +120,7 @@
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_form_full_name_edittext" />
@@ -143,6 +142,7 @@
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_form_password_edit_text" />
@@ -164,6 +164,7 @@
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_form_user_name_edit_text" />
@@ -180,6 +181,7 @@
         android:textColor="@color/colorText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -197,6 +199,7 @@
         android:textColor="@color/colorText"
         android:textSize="16sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sign_up_form_login_textview"
         app:layout_constraintHorizontal_bias="0.0"
@@ -213,6 +216,7 @@
         android:textColor="@color/colorClickableText"
         android:textSize="16sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sign_up_form_already_have_account_textview" />
@@ -234,9 +238,11 @@
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/app_name_text_view"
+        />
 
     <Button
         android:id="@+id/login_form_login_button"
@@ -250,12 +256,13 @@
         android:textColor="@color/colorText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_form_password_edittext" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/login_form_dont_have_account_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="49dp"
@@ -265,6 +272,7 @@
         android:textColor="@color/colorText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.344"
@@ -284,6 +292,7 @@
         android:textColor="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_form_login_button"
@@ -306,6 +315,7 @@
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
         android:visibility="gone"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_form_username_edittext" />
@@ -320,10 +330,12 @@
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/app_name_text_view"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/otp_edittext1"
@@ -338,10 +350,12 @@
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toStartOf="@+id/otp_edittext2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otp_edittext4"
-        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/otp_edittext4"
@@ -356,10 +370,12 @@
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toStartOf="@+id/otp_edittext1"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/otp_edittext5"
@@ -374,10 +390,12 @@
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otp_edittext3"
-        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/otp_edittext2"
@@ -392,10 +410,12 @@
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toStartOf="@+id/otp_edittext3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otp_edittext1"
-        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview"
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/otp_edittext3"
@@ -410,10 +430,12 @@
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toStartOf="@+id/otp_edittext5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/otp_edittext2"
-        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/otp_mobile_textview"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/otp_verify_button"
@@ -428,13 +450,15 @@
         android:textAllCaps="false"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otp_edittext2" />
+        app:layout_constraintTop_toBottomOf="@+id/otp_edittext2"
+        android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/didnt_receive_code_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
@@ -443,9 +467,11 @@
         android:text="@string/did_nt_receive_the_code"
         android:textColor="@color/colorText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/resend_code_textview"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/resend_code_textview"
@@ -457,9 +483,11 @@
         android:fontFamily="@font/roboto_medium"
         android:textColor="@color/colorClickableText"
         android:textSize="18sp"
+        android:alpha="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/didnt_receive_code_textview"
+        android:visibility="gone"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
