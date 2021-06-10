@@ -9,12 +9,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.uddesh.tiffinserviceapp.Helpers.GenericTextWatcher;
 import com.uddesh.tiffinserviceapp.R;
 
 public class MainActivity extends AppCompatActivity {
     ImageView logo_image_imageview;
     Button sign_up_button, login_button, signup_up_form_signup_button, login_form_login_button, otp_verify_button;
     TextView didnt_receive_code_textview , app_name_text_view, or_text_view, login_form_signup_textview ,sign_up_form_already_have_account_textview, sign_up_form_login_textview, otp_mobile_textview , resend_code_textview , login_form_dont_have_account_textview;
+
     EditText signup_form_user_name_edit_text ,signup_form_full_name_edittext, sign_up_form_mobile_edit_text, signup_form_password_edit_text, login_form_username_edittext, login_form_password_edittext , otp_edittext1 ,otp_edittext4,otp_edittext5,otp_edittext2, otp_edittext3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
         otp_edittext3 = findViewById(R.id.otp_edittext3);
         otp_verify_button = findViewById(R.id.otp_verify_button);
         didnt_receive_code_textview = findViewById(R.id.didnt_receive_code_textview);
+        EditText[] otpEditText = {otp_edittext4 , otp_edittext1 , otp_edittext2 , otp_edittext3 , otp_edittext5};
+        otp_edittext1.addTextChangedListener(new GenericTextWatcher(otp_edittext1 , otpEditText));
+        otp_edittext2.addTextChangedListener(new GenericTextWatcher(otp_edittext2, otpEditText));
+        otp_edittext3.addTextChangedListener(new GenericTextWatcher(otp_edittext3, otpEditText));
+        otp_edittext4.addTextChangedListener(new GenericTextWatcher(otp_edittext4, otpEditText));
+        otp_edittext5.addTextChangedListener(new GenericTextWatcher(otp_edittext5, otpEditText));
     }
 
     private void clickListeners()
