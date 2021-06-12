@@ -16,8 +16,8 @@ import com.uddesh.tiffinserviceapp.Adapters.ServiceListFragmentRecyclerAdapter;
 import com.uddesh.tiffinserviceapp.R;
 
 public class ServiceListFragment extends Fragment {
-    RecyclerView recyclerView;
-    ServiceListFragmentRecyclerAdapter serviceListFragmentRecyclerAdapterInstance;
+    private RecyclerView recyclerView;
+    private ServiceListFragmentRecyclerAdapter serviceListFragmentRecyclerAdapterInstance;
     public ServiceListFragment() {
         // Required empty public constructor
     }
