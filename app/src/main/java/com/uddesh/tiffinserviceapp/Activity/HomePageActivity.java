@@ -13,9 +13,9 @@ import com.uddesh.tiffinserviceapp.Adapters.HomepagePagerAdapter;
 import com.uddesh.tiffinserviceapp.R;
 
 public class HomePageActivity extends FragmentActivity {
-    ViewPager2 viewPager;
-    FragmentStateAdapter pagerAdapter;
-    TabLayout tabLayout;
+    private ViewPager2 viewPager;
+    private FragmentStateAdapter pagerAdapter;
+    private TabLayout tabLayout;
     final int[] tabDrawables = {R.drawable.ic_home , R.drawable.ic_search};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +37,6 @@ public class HomePageActivity extends FragmentActivity {
 
     private void tabMediator()
     {
-        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setIcon(tabDrawables[position]);
-            }
-        }).attach();
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setIcon(tabDrawables[position])).attach();
     }
 }

@@ -32,8 +32,8 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<HomeFragme
 
 class HomeFragmentRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    ImageView service_logo_imageview;
-    TextView service_provider_name_textview , service_name_textview , service_active_textview , service_notactive_textview;
+    private ImageView service_logo_imageview;
+    private TextView service_provider_name_textview , service_name_textview , service_active_textview , service_notactive_textview;
     public HomeFragmentRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         service_logo_imageview = itemView.findViewById(R.id.service_logo_imageview);

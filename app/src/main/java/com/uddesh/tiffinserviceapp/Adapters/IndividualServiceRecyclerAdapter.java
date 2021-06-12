@@ -33,8 +33,8 @@ public class IndividualServiceRecyclerAdapter extends RecyclerView.Adapter<Indiv
 
 class IndividualServiceRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    ImageView service_imageview;
-    TextView service_name_textview , price_textview;
+    private ImageView service_imageview;
+    private TextView service_name_textview , price_textview;
     public IndividualServiceRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         service_imageview = itemView.findViewById(R.id.service_imageview);

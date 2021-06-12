@@ -12,10 +12,10 @@ import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 import com.uddesh.tiffinserviceapp.R;
 
 public class SubscribedServiceActivity extends AppCompatActivity {
-    PorterShapeImageView tab_imageView;
-    ImageView  service_logo_imageView;
-    TextView days_remaining_textView, service_provider_name_textView, service_name_textView, service_desciption_textView;
-    Button pause_service_button, resume_service_button ,renew_button;
+    private PorterShapeImageView tab_imageView;
+    private ImageView  service_logo_imageView;
+    private TextView days_remaining_textView, service_provider_name_textView, service_name_textView, service_desciption_textView;
+    private Button pause_service_button, resume_service_button ,renew_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,23 +41,14 @@ public class SubscribedServiceActivity extends AppCompatActivity {
 
     private void clickListeners()
     {
-        pause_service_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        pause_service_button.setOnClickListener(v -> {
 
-            }
         });
-        resume_service_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        resume_service_button.setOnClickListener(v -> {
 
-            }
         });
-        renew_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        renew_button.setOnClickListener(v -> {
 
-            }
         });
     }
 }

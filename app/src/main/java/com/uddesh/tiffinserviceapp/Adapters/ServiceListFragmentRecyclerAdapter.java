@@ -33,8 +33,8 @@ public class ServiceListFragmentRecyclerAdapter extends RecyclerView.Adapter<Ser
 
 class ServiceListFragmentRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    ImageView service_provider_logo_imageview;
-    TextView service_provider_name_textview,veg_textview , nonveg_textview ,distance_textview , availability_textview , price_textview;
+    private ImageView service_provider_logo_imageview;
+    private TextView service_provider_name_textview,veg_textview , nonveg_textview ,distance_textview , availability_textview , price_textview;
     public ServiceListFragmentRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         service_provider_logo_imageview = itemView.findViewById(R.id.service_provider_logo_imageview);

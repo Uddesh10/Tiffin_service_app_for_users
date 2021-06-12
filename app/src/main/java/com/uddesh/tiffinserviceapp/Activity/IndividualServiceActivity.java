@@ -37,11 +37,8 @@ public class IndividualServiceActivity extends AppCompatActivity {
 
     private void clickListeners()
     {
-        subscribe_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        subscribe_button.setOnClickListener(v -> {
 
-            }
         });
 
     }

@@ -13,11 +13,11 @@ import com.uddesh.tiffinserviceapp.Adapters.ServiceListFragmentRecyclerAdapter;
 import com.uddesh.tiffinserviceapp.R;
 
 public class IndividualServiceProviderActivity extends AppCompatActivity {
-    PorterShapeImageView tab_imageView;
-    RecyclerView individual_service_recyclerview;
-    ImageView service_logo_imageview;
-    ServiceListFragmentRecyclerAdapter serviceListFragmentRecyclerAdapterInstance;
-    TextView service_provider_name_textview , veg_textview , nonveg_textvview,distance_textview ,lunch_dinner_textview ,delivery_timings_textview,phone_no_textview;
+    private PorterShapeImageView tab_imageView;
+    private RecyclerView individual_service_recyclerview;
+    private ImageView service_logo_imageview;
+    private  ServiceListFragmentRecyclerAdapter serviceListFragmentRecyclerAdapterInstance;
+    private TextView service_provider_name_textview , veg_textview , nonveg_textvview,distance_textview ,lunch_dinner_textview ,delivery_timings_textview,phone_no_textview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
