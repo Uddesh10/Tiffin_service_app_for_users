@@ -10,18 +10,18 @@
 
 
     <com.mapbox.mapboxsdk.maps.MapView
-        android:id="@+id/map_view"
+        android:id="@+id/setAddressMapView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         mapbox:mapbox_cameraZoom="15"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/address_edittext"
+        app:layout_constraintBottom_toTopOf="@+id/setAddressTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/address_edittext"
+        android:id="@+id/setAddressTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,14 +37,14 @@
         android:textColor="@color/colorText"
         android:textColorHint="@color/colorClickableText"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/set_location_button"
+        app:layout_constraintBottom_toTopOf="@+id/setAddressButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="LabelFor" />
 
     <Button
-        android:id="@+id/set_location_button"
+        android:id="@+id/setAddressButton"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginBottom="56dp"

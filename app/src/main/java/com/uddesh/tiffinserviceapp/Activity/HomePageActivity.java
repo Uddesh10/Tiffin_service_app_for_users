@@ -1,6 +1,8 @@
 package com.uddesh.tiffinserviceapp.Activity;
 
 
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -14,6 +16,8 @@ public class HomePageActivity extends FragmentActivity {
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
     private TabLayout tabLayout;
+    private TextView homepageTabTextView;
+    private ImageView homepageTabSettingsImageView;
     final int[] tabDrawables = {R.drawable.ic_home , R.drawable.ic_search};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,8 @@ public class HomePageActivity extends FragmentActivity {
         pagerAdapter = new HomepagePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
         tabLayout = findViewById(R.id.tab_layout);
+        homepageTabSettingsImageView = findViewById(R.id.homepageTabSettingsImageView);
+        homepageTabTextView = findViewById(R.id.homepageTabTextview);
     }
 
     private void tabMediator()

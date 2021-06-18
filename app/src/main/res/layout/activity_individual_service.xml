@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary">
 
     <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-    android:id="@+id/tab_imageView"
+    android:id="@+id/individualServiceTabImageView"
     android:layout_width="0dp"
     android:layout_height="162dp"
     app:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
     app:siShape="@drawable/bg_tab_image"/>
 
     <TextView
-        android:id="@+id/service_provider_name_textview"
+        android:id="@+id/individualServiceNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.306" />
 
     <TextView
-        android:id="@+id/service_name_textview"
+        android:id="@+id/individualServiceDescriptionTextview"
         android:layout_width="359dp"
         android:layout_height="172dp"
         android:fontFamily="@font/roboto_regular"
@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.465" />
 
     <TextView
-        android:id="@+id/price_textview"
+        android:id="@+id/individualServicePriceTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.64" />
 
     <Button
-        android:id="@+id/subscribe_button"
+        android:id="@+id/individualServiceSubscribeButton"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:background="@drawable/bg_button_general"

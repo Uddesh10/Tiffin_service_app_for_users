@@ -11,11 +11,11 @@ import com.uddesh.tiffinserviceapp.Adapters.IndividualServiceRecyclerAdapter;
 import com.uddesh.tiffinserviceapp.R;
 
 public class IndividualServiceProviderActivity extends AppCompatActivity {
-    private PorterShapeImageView tab_imageView;
-    private RecyclerView individual_service_recyclerview;
-    private ImageView service_logo_imageview;
+    private PorterShapeImageView individualServiceProviderTabImageView;
+    private RecyclerView individualServiceProviderRecyclerView;
+    private ImageView individualServiceProviderLogoImageView;
     private IndividualServiceRecyclerAdapter individualServiceRecyclerAdapterInstance;
-    private TextView service_provider_name_textview , veg_textview , nonveg_textvview,distance_textview ,lunch_dinner_textview ,delivery_timings_textview,phone_no_textview;
+    private TextView individualServiceProviderDistanceTextView , individualServiceProviderVegTextView , individualServiceProviderNameTextView,individualServiceProviderLunchDinnerTextView ,individualServiceProviderDeliveryTimingsTextView ,individualServiceProviderPhoneTextView,individualServiceProviderNonVegTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,19 +27,19 @@ public class IndividualServiceProviderActivity extends AppCompatActivity {
     // private functions
     private void initialiseComponent()
     {
-        tab_imageView = findViewById(R.id.tab_imageView);
-        service_logo_imageview = findViewById(R.id.service_logo_imageview);
-        service_provider_name_textview = findViewById(R.id.service_provider_name_textview);
-        distance_textview = findViewById(R.id.distance_textview);
-        lunch_dinner_textview = findViewById(R.id.lunch_dinner_textview);
-        delivery_timings_textview = findViewById(R.id.delivery_timings_textview);
-        phone_no_textview = findViewById(R.id.phone_no_textview);
-        veg_textview = findViewById(R.id.veg_textview);
-        nonveg_textvview = findViewById(R.id.nonveg_textview);
-        individual_service_recyclerview = findViewById(R.id.individual_service_recyclerview);
-        individual_service_recyclerview.setLayoutManager(new LinearLayoutManager( this ,LinearLayoutManager.HORIZONTAL , false));
+        individualServiceProviderTabImageView = findViewById(R.id.individualServiceProviderTabImageView);
+        individualServiceProviderLogoImageView = findViewById(R.id.individualServiceProviderLogoImageView);
+        individualServiceProviderDistanceTextView = findViewById(R.id.individualServiceProviderDistanceTextView);
+        individualServiceProviderLunchDinnerTextView = findViewById(R.id.individualServiceProviderLunchDinnerTextView);
+        individualServiceProviderDeliveryTimingsTextView = findViewById(R.id.individualServiceProviderDeliveryTimingsTextView);
+        individualServiceProviderPhoneTextView = findViewById(R.id.individualServiceProviderPhoneTextView);
+        individualServiceProviderNonVegTextView = findViewById(R.id.individualServiceProviderNonVegTextView);
+        individualServiceProviderVegTextView = findViewById(R.id.individualServiceProviderVegTextView);
+        individualServiceProviderNameTextView = findViewById(R.id.individualServiceProviderNameTextView);
+        individualServiceProviderRecyclerView = findViewById(R.id.individualServiceProviderRecyclerView);
+        individualServiceProviderRecyclerView.setLayoutManager(new LinearLayoutManager( this ,LinearLayoutManager.HORIZONTAL , false));
         individualServiceRecyclerAdapterInstance = new IndividualServiceRecyclerAdapter();
-        individual_service_recyclerview.setAdapter(individualServiceRecyclerAdapterInstance);
+        individualServiceProviderRecyclerView.setAdapter(individualServiceRecyclerAdapterInstance);
     }
 
 

@@ -31,23 +31,23 @@ import java.util.List;
 
 
 public class SetAddressActivity extends AppCompatActivity implements OnMapReadyCallback, PermissionsListener {
-    private MapView mapView;
+    private MapView setAddressMapView;
     private PermissionsManager permissionsManager;
     private MapboxMap mapboxMap;
     private Symbol symbol;
-    private EditText address_edittext;
-    private Button set_location_button;
+    private EditText setAddressTextView;
+    private Button setAddressButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_set_address);
-        mapView =  findViewById(R.id.map_view);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
-        address_edittext = findViewById(R.id.address_edittext);
-        set_location_button = findViewById(R.id.set_location_button);
-        set_location_button.setOnClickListener(view -> {
+        setAddressMapView =  findViewById(R.id.setAddressMapView);
+        setAddressMapView.onCreate(savedInstanceState);
+        setAddressMapView.getMapAsync(this);
+        setAddressTextView = findViewById(R.id.setAddressTextView);
+        setAddressButton = findViewById(R.id.setAddressButton);
+        setAddressButton.setOnClickListener(view -> {
             Intent intent = new Intent(this , HomePageActivity.class);
             startActivity(intent);
             finish();
@@ -57,43 +57,43 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     protected void onStart() {
         super.onStart();
-        mapView.onStart();
+        setAddressMapView.onStart();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mapView.onResume();
+        setAddressMapView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mapView.onPause();
+        setAddressMapView.onPause();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mapView.onStop();
+        setAddressMapView.onStop();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        mapView.onSaveInstanceState(outState);
+        setAddressMapView.onSaveInstanceState(outState);
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        mapView.onLowMemory();
+        setAddressMapView.onLowMemory();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mapView.onDestroy();
+        setAddressMapView.onDestroy();
     }
 
     @Override
@@ -120,7 +120,7 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
                 enableLocationComponent(style);
                 Location location = mapboxMap.getLocationComponent().getLastKnownLocation();
                 style.addImage("LOCATION_MARKER" , BitmapUtils.getBitmapFromDrawable(getResources().getDrawable(R.drawable.ic_location_marker)));
-                SymbolManager symbolManager = new SymbolManager(mapView, mapboxMap, style);
+                SymbolManager symbolManager = new SymbolManager(setAddressMapView, mapboxMap, style);
                 symbolManager.setIconAllowOverlap(true);
                 symbolManager.setTextAllowOverlap(true);
                 SymbolOptions symbolOptions = new SymbolOptions()

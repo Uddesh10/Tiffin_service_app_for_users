@@ -31,24 +31,24 @@ public class IndividualServiceRecyclerAdapter extends RecyclerView.Adapter<Indiv
 
 class IndividualServiceRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    private ImageView service_imageview;
-    private TextView service_name_textview , price_textview;
+    private ImageView individualServiceCardImageView;
+    private TextView individualServiceCardNameTextView , individualServiceCardPriceTextView;
     public IndividualServiceRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
-        service_imageview = itemView.findViewById(R.id.service_imageview);
-        service_name_textview = itemView.findViewById(R.id.service_name_textview);
-        price_textview = itemView.findViewById(R.id.price_textview);
+        individualServiceCardImageView = itemView.findViewById(R.id.individualServiceCardImageView);
+        individualServiceCardNameTextView = itemView.findViewById(R.id.individualServiceCardNameTextView);
+        individualServiceCardPriceTextView = itemView.findViewById(R.id.individualServiceCardPriceTextView);
     }
 
-    public ImageView getService_imageview() {
-        return service_imageview;
+    public ImageView getIndividualServiceCardImageView() {
+        return individualServiceCardImageView;
     }
 
-    public TextView getService_name_textview() {
-        return service_name_textview;
+    public TextView getIndividualServiceCardNameTextView() {
+        return individualServiceCardNameTextView;
     }
 
-    public TextView getPrice_textview() {
-        return price_textview;
+    public TextView getIndividualServiceCardPriceTextView() {
+        return individualServiceCardPriceTextView;
     }
 }

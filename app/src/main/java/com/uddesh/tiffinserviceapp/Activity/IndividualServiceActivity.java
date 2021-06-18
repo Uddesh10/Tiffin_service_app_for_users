@@ -10,9 +10,9 @@ import com.uddesh.tiffinserviceapp.R;
 
 public class IndividualServiceActivity extends AppCompatActivity {
 
-    PorterShapeImageView tab_imageview;
-    TextView service_provider_name_textview ,service_name_textview, price_textview;
-    Button subscribe_button;
+    PorterShapeImageView individualServiceTabImageView;
+    TextView individualServiceNameTextView,individualServiceDescriptionTextview,individualServicePriceTextview;
+    Button individualServiceSubscribeButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,16 +25,16 @@ public class IndividualServiceActivity extends AppCompatActivity {
     // Private functions
     private void initialiseComponents()
     {
-        tab_imageview = findViewById(R.id.tab_imageView);
-        service_provider_name_textview = findViewById(R.id.service_provider_name_textview);
-        service_name_textview = findViewById(R.id.service_name_textview);
-        price_textview= findViewById(R.id.price_textview);
-        subscribe_button = findViewById(R.id.subscribe_button);
+        individualServiceTabImageView = findViewById(R.id.individualServiceTabImageView);
+        individualServiceNameTextView = findViewById(R.id.individualServiceNameTextView);
+        individualServiceDescriptionTextview = findViewById(R.id.individualServiceDescriptionTextview);
+        individualServicePriceTextview = findViewById(R.id.individualServicePriceTextview);
+        individualServiceSubscribeButton = findViewById(R.id.individualServiceSubscribeButton);
     }
 
     private void clickListeners()
     {
-        subscribe_button.setOnClickListener(v -> {
+        individualServiceSubscribeButton.setOnClickListener(v -> {
 
         });
 

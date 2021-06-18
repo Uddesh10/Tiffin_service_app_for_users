@@ -33,44 +33,44 @@ public class ServiceListFragmentRecyclerAdapter extends RecyclerView.Adapter<Ser
 
 class ServiceListFragmentRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    private ImageView service_provider_logo_imageview;
-    private TextView service_provider_name_textview,veg_textview , nonveg_textview ,distance_textview , availability_textview , price_textview;
+    private ImageView serviceProviderCardLogoImageview;
+    private TextView serviceProviderCardNameTextView,serviceProviderCardVegTextView , serviceProviderCardNonVegTextView ,serviceProviderCardDistanceTextView , serviceProviderCardAvailabilityTextView , serviceProviderCardPriceTextView;
     public ServiceListFragmentRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
-        service_provider_logo_imageview = itemView.findViewById(R.id.service_provider_logo_imageview);
-        service_provider_name_textview = itemView.findViewById(R.id.service_provider_name_textview);
-        veg_textview = itemView.findViewById(R.id.veg_textview);
-        nonveg_textview = itemView.findViewById(R.id.nonveg_textview);
-        distance_textview = itemView.findViewById(R.id.distance_textview);
-        availability_textview = itemView.findViewById(R.id.availability_textview);
-        price_textview = itemView.findViewById(R.id.price_textview);
+        serviceProviderCardLogoImageview = itemView.findViewById(R.id.serviceProviderCardLogoImageview);
+        serviceProviderCardNameTextView = itemView.findViewById(R.id.serviceProviderCardNameTextView);
+        serviceProviderCardVegTextView = itemView.findViewById(R.id.serviceProviderCardVegTextView);
+        serviceProviderCardNonVegTextView = itemView.findViewById(R.id.serviceProviderCardNonVegTextView);
+        serviceProviderCardDistanceTextView = itemView.findViewById(R.id.serviceProviderCardDistanceTextView);
+        serviceProviderCardAvailabilityTextView = itemView.findViewById(R.id.serviceProviderCardAvailabilityTextView);
+        serviceProviderCardPriceTextView = itemView.findViewById(R.id.serviceProviderCardPriceTextView);
     }
 
-    public ImageView getService_provider_logo_imageview() {
-        return service_provider_logo_imageview;
+    public ImageView getServiceProviderCardLogoImageview() {
+        return serviceProviderCardLogoImageview;
     }
 
-    public TextView getService_provider_name_textview() {
-        return service_provider_name_textview;
+    public TextView getServiceProviderCardNameTextView() {
+        return serviceProviderCardNameTextView;
     }
 
-    public TextView getVeg_textview() {
-        return veg_textview;
+    public TextView getServiceProviderCardVegTextView() {
+        return serviceProviderCardVegTextView;
     }
 
-    public TextView getNonveg_textview() {
-        return nonveg_textview;
+    public TextView getServiceProviderCardNonVegTextView() {
+        return serviceProviderCardNonVegTextView;
     }
 
-    public TextView getDistance_textview() {
-        return distance_textview;
+    public TextView getServiceProviderCardDistanceTextView() {
+        return serviceProviderCardDistanceTextView;
     }
 
-    public TextView getAvailability_textview() {
-        return availability_textview;
+    public TextView getServiceProviderCardAvailabilityTextView() {
+        return serviceProviderCardAvailabilityTextView;
     }
 
-    public TextView getPrice_textview() {
-        return price_textview;
+    public TextView getServiceProviderCardPriceTextView() {
+        return serviceProviderCardPriceTextView;
     }
 }

@@ -11,10 +11,10 @@ import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 import com.uddesh.tiffinserviceapp.R;
 
 public class SubscribedServiceActivity extends AppCompatActivity {
-    private PorterShapeImageView tab_imageView;
-    private ImageView  service_logo_imageView;
-    private TextView days_remaining_textView, service_provider_name_textView, service_name_textView, service_desciption_textView;
-    private Button pause_service_button, resume_service_button ,renew_button;
+    private PorterShapeImageView subscribedServiceTabImageView;
+    private ImageView  subscribedServiceLogoImageView;
+    private TextView subscribedServiceDaysTextView, subscribedServiceProviderNameTextView, subscribedServiceNameTextView, subscribedServiceDescriptionTextView;
+    private Button subscribedServicePauseButton, subscribedServiceRenewButton ,subscribedServiceResumeButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,26 +27,26 @@ public class SubscribedServiceActivity extends AppCompatActivity {
     //Private functions
     private void initialiseComponents()
     {
-        tab_imageView = findViewById(R.id.tab_imageView);
-        service_logo_imageView= findViewById(R.id.service_logo_imageview);
-        days_remaining_textView = findViewById(R.id.days_remaining_textview);
-        service_provider_name_textView = findViewById(R.id.service_provider_name_textview);
-        service_name_textView = findViewById(R.id.service_name_textview);
-        service_desciption_textView = findViewById(R.id.service_desciption_textview);
-        pause_service_button = findViewById(R.id.pause_service_button);
-        resume_service_button = findViewById(R.id.resume_service_button);
-        renew_button = findViewById(R.id.renew_button);
+        subscribedServiceTabImageView = findViewById(R.id.subscribedServiceTabImageView);
+        subscribedServiceLogoImageView = findViewById(R.id.subscribedServiceLogoImageView);
+        subscribedServiceDaysTextView = findViewById(R.id.subscribedServiceDaysTextView);
+        subscribedServiceProviderNameTextView = findViewById(R.id.subscribedServiceProviderNameTextView);
+        subscribedServiceNameTextView = findViewById(R.id.subscribedServiceNameTextView);
+        subscribedServiceDescriptionTextView = findViewById(R.id.subscribedServiceDescriptionTextView);
+        subscribedServicePauseButton = findViewById(R.id.subscribedServicePauseButton);
+        subscribedServiceRenewButton = findViewById(R.id.subscribedServiceRenewButton);
+        subscribedServiceResumeButton = findViewById(R.id.subscribedServiceResumeButton);
     }
 
     private void clickListeners()
     {
-        pause_service_button.setOnClickListener(v -> {
+        subscribedServicePauseButton.setOnClickListener(v -> {
 
         });
-        resume_service_button.setOnClickListener(v -> {
+        subscribedServiceRenewButton.setOnClickListener(v -> {
 
         });
-        renew_button.setOnClickListener(v -> {
+        subscribedServiceResumeButton.setOnClickListener(v -> {
 
         });
     }

@@ -43,7 +43,7 @@ public class ServiceListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.service_list_recyclerview);
+        recyclerView = view.findViewById(R.id.serviceListFragmentRecyclerView);
         serviceListFragmentRecyclerAdapterInstance = new ServiceListFragmentRecyclerAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager( getContext() ,LinearLayoutManager.VERTICAL , false));
         recyclerView.setAdapter(serviceListFragmentRecyclerAdapterInstance);

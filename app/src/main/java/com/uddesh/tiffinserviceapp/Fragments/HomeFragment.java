@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.home_fragment_recyclerview);
+        recyclerView = view.findViewById(R.id.homeFragmentRecyclerView);
         homeFragmentRecyclerAdapterInstance = new HomeFragmentRecyclerAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager( getContext() ,LinearLayoutManager.VERTICAL , false));
         recyclerView.setAdapter(homeFragmentRecyclerAdapterInstance);

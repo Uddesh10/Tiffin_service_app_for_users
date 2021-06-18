@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/service_imageview"
+            android:id="@+id/individualServiceCardImageView"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="10"
@@ -24,7 +24,7 @@
             />
 
         <TextView
-            android:id="@+id/service_name_textview"
+            android:id="@+id/individualServiceCardNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -37,7 +37,7 @@
             />
 
         <TextView
-            android:id="@+id/price_textview"
+            android:id="@+id/individualServiceCardPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"

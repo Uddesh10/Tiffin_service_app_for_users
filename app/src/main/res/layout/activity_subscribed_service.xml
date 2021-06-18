@@ -9,7 +9,7 @@
 
 
     <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-        android:id="@+id/tab_imageView"
+        android:id="@+id/subscribedServiceTabImageView"
         android:layout_width="0dp"
         android:layout_height="162dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
 
 
     <ImageView
-        android:id="@+id/service_logo_imageview"
+        android:id="@+id/subscribedServiceLogoImageView"
         android:layout_width="90dp"
         android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,11 +44,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tab_imageView"
+        app:layout_constraintTop_toTopOf="@+id/subscribedServiceTabImageView"
         app:layout_constraintVertical_bias="0.608" />
 
     <TextView
-        android:id="@+id/days_remaining_textview"
+        android:id="@+id/subscribedServiceDaysTextView"
         android:layout_width="41dp"
         android:layout_height="42dp"
         android:fontFamily="@font/roboto_bold"
@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <TextView
-        android:id="@+id/service_provider_name_textview"
+        android:id="@+id/subscribedServiceProviderNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.325" />
 
     <TextView
-        android:id="@+id/service_name_textview"
+        android:id="@+id/subscribedServiceNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:fontFamily="@font/roboto_bold"
@@ -106,7 +106,7 @@
         app:layout_constraintVertical_bias="0.377" />
 
     <TextView
-        android:id="@+id/service_desciption_textview"
+        android:id="@+id/subscribedServiceDescriptionTextView"
         android:layout_width="226dp"
         android:layout_height="221dp"
         android:fontFamily="@font/roboto_medium"
@@ -121,42 +121,41 @@
         app:layout_constraintVertical_bias="0.594" />
 
     <Button
-        android:id="@+id/pause_service_button"
-        android:layout_width="142dp"
-        android:layout_height="42dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/bg_button_danger"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/pause_service"
-        android:textAllCaps="false"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.156"
-        app:layout_constraintStart_toStartOf="parent"
-        android:visibility="gone"/>
-
+            android:id="@+id/subscribedServicePauseButton"
+            android:layout_width="164dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_button_danger"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/pause_service"
+            android:textAllCaps="false"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.912"
+            android:visibility="gone"/>
     <Button
-        android:id="@+id/renew_button"
-        android:layout_width="164dp"
-        android:layout_height="48dp"
-        android:background="@drawable/bg_button_general"
-        android:fontFamily="@font/roboto_bold"
-        android:gravity="center"
-        android:text="@string/renew"
-        android:textAllCaps="false"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.912" />
-
+            android:id="@+id/subscribedServiceRenewButton"
+            android:layout_width="164dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_button_general"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="@string/renew"
+            android:textAllCaps="false"
+            android:textColor="@color/colorText"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.89"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.912"/>
     <Button
-        android:id="@+id/resume_service_button"
+        android:id="@+id/subscribedServiceResumeButton"
         android:layout_width="164dp"
         android:layout_height="48dp"
         android:background="@drawable/bg_button_success"
