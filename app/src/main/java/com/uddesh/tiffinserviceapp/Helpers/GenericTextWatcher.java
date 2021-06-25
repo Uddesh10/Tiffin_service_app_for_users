@@ -4,6 +4,7 @@ package com.uddesh.tiffinserviceapp.Helpers;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import com.uddesh.tiffinserviceapp.R;
@@ -49,10 +50,15 @@ public class GenericTextWatcher implements TextWatcher
                     otpEditText[2].requestFocus();
                 break;
             case R.id.otp_edittext5:
-                if(text.length()==0)
+                if(text.length()==1)
+                    otpEditText[5].requestFocus();
+                else if(text.length()==0)
                     otpEditText[3].requestFocus();
-
-
+                break;
+            case R.id.otp_edittext6:
+                if(text.length()==0){
+                    otpEditText[4].requestFocus();
+                }
         }
     }
 
