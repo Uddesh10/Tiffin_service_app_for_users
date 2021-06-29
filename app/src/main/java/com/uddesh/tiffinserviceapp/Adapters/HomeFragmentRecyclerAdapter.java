@@ -1,5 +1,7 @@
 package com.uddesh.tiffinserviceapp.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,10 +9,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.uddesh.tiffinserviceapp.Activity.SubscribedServiceActivity;
+import com.uddesh.tiffinserviceapp.DataModels.SubscribedServiceModel;
 import com.uddesh.tiffinserviceapp.R;
+import com.uddesh.tiffinserviceapp.Repository.PicassoRepository;
+import java.util.List;
 
 
 public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<HomeFragmentRecyclerViewHolder>  {
+    private List<SubscribedServiceModel> model;
+    private final Context mContext;
+    private final PicassoRepository picasso = new PicassoRepository();
+
+    public HomeFragmentRecyclerAdapter(Context mContext) {
+        this.mContext = mContext;
+    }
+
     @NonNull
     @Override
     public HomeFragmentRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -21,19 +35,48 @@ public class HomeFragmentRecyclerAdapter extends RecyclerView.Adapter<HomeFragme
 
     @Override
     public void onBindViewHolder(@NonNull HomeFragmentRecyclerViewHolder holder, int position) {
-
+        if(model!=null)
+        {
+            String filename = model.get(position).getLogoimage();
+            picasso.getLogoImage(filename , holder.getSubscribedCardLogoImageView());
+            holder.getSubscribedCardNameTextView().setText(model.get(position).getProvidername());
+            holder.getSubscribedCardServiceNameTextView().setText(model.get(position).getServicename());
+            if(model.get(position).isActive())
+            {
+                holder.getSubscribedCardActiveTextView().setVisibility(View.VISIBLE);
+                holder.getSubscribedCardNotActiveTextView().setVisibility(View.GONE);
+            }
+            else {
+                holder.getSubscribedCardActiveTextView().setVisibility(View.GONE);
+                holder.getSubscribedCardNotActiveTextView().setVisibility(View.VISIBLE);
+            }
+            holder.itemView.setOnClickListener(v->{
+                Intent intent = new Intent(mContext , SubscribedServiceActivity.class);
+                intent.putExtra("id" , model.get(position).getId());
+                mContext.startActivity(intent);
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        if(model!=null)
+            return model.size();
+        else
+            return 0;
+    }
+
+    public void notifyDataSetChanged(List<SubscribedServiceModel> model)
+    {
+        this.model = model;
+        notifyDataSetChanged();
     }
 }
 
 class HomeFragmentRecyclerViewHolder extends RecyclerView.ViewHolder
 {
-    private ImageView subscribedCardLogoImageView;
-    private TextView subscribedCardNameTextView , subscribedCardServiceNameTextView , subscribedCardActiveTextView , subscribedCardNotActiveTextView;
+    private final ImageView subscribedCardLogoImageView;
+    private final TextView subscribedCardNameTextView , subscribedCardServiceNameTextView , subscribedCardActiveTextView , subscribedCardNotActiveTextView;
     public HomeFragmentRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         subscribedCardLogoImageView = itemView.findViewById(R.id.subscribedCardLogoImageView);

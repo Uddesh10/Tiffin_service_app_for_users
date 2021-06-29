@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.uddesh.tiffinserviceapp.Adapters.HomepagePagerAdapter;
+import com.uddesh.tiffinserviceapp.Helpers.SharedPreferencesHelper;
 import com.uddesh.tiffinserviceapp.R;
 
 public class HomePageActivity extends FragmentActivity {
@@ -19,6 +20,7 @@ public class HomePageActivity extends FragmentActivity {
     private TextView homepageTabTextView;
     private ImageView homepageTabSettingsImageView;
     final int[] tabDrawables = {R.drawable.ic_home , R.drawable.ic_search};
+    private SharedPreferencesHelper sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,9 @@ public class HomePageActivity extends FragmentActivity {
         tabLayout = findViewById(R.id.tab_layout);
         homepageTabSettingsImageView = findViewById(R.id.homepageTabSettingsImageView);
         homepageTabTextView = findViewById(R.id.homepageTabTextview);
+        sharedPreferences = new SharedPreferencesHelper(this);
+        String username = "Welcome!\n"+sharedPreferences.getSharedPreferences("username");
+        homepageTabTextView.setText(username);
     }
 
     private void tabMediator()

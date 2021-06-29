@@ -1,13 +1,11 @@
 package com.uddesh.tiffinserviceapp.Helpers;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.*;
 import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCallbacks;
-import com.uddesh.tiffinserviceapp.Activity.SetAddressActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +21,7 @@ public class OtpVerification {
     public void sendVerificationCode(String number) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(number)
+                        .setPhoneNumber("+91"+number)
                         .setTimeout(60L, TimeUnit.SECONDS)
                         .setActivity(activity)
                         .setCallbacks(mCallBack)
@@ -47,21 +45,22 @@ public class OtpVerification {
         }
     };
 
-    public void verifyCode(String code) {
+    public MutableLiveData<Boolean> verifyCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        signInWithCredential(credential);
+        return signInWithCredential(credential);
     }
 
-    private void signInWithCredential(PhoneAuthCredential credential) {
+    private MutableLiveData<Boolean> signInWithCredential(PhoneAuthCredential credential) {
+        MutableLiveData<Boolean> data = new MutableLiveData<>();
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()){
-                        Intent intent = new Intent(activity , SetAddressActivity.class);
-                        activity.startActivity(intent);
+                        data.setValue(true);
                     }
                     else{
-                        Log.i("data" , "failure");
+                        data.setValue(false);
                     }
                 });
+        return data;
     }
 }

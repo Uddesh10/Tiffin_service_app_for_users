@@ -59,6 +59,7 @@ public class GenericTextWatcher implements TextWatcher
                 if(text.length()==0){
                     otpEditText[4].requestFocus();
                 }
+                break;
         }
     }
 

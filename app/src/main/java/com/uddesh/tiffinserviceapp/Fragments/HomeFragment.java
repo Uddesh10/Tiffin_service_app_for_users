@@ -10,13 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.uddesh.tiffinserviceapp.Adapters.HomeFragmentRecyclerAdapter;
+import com.uddesh.tiffinserviceapp.DataModels.SubscribedServiceModel;
 import com.uddesh.tiffinserviceapp.R;
+import com.uddesh.tiffinserviceapp.Repository.RetrofitViewModel;
+
+import java.util.List;
 
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView recyclerView;
     private HomeFragmentRecyclerAdapter homeFragmentRecyclerAdapterInstance;
+    private RetrofitViewModel viewModel;
+    private List<SubscribedServiceModel> model;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -41,9 +46,23 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.homeFragmentRecyclerView);
-        homeFragmentRecyclerAdapterInstance = new HomeFragmentRecyclerAdapter();
+        viewModel = new RetrofitViewModel(getActivity().getApplication());
+        RecyclerView recyclerView = view.findViewById(R.id.homeFragmentRecyclerView);
+        homeFragmentRecyclerAdapterInstance = new HomeFragmentRecyclerAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager( getContext() ,LinearLayoutManager.VERTICAL , false));
         recyclerView.setAdapter(homeFragmentRecyclerAdapterInstance);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewModel.getSubscribedService().observe(getActivity() , result->{
+            if(result!=null)
+            {
+                model = result;
+                homeFragmentRecyclerAdapterInstance.notifyDataSetChanged(model);
+            }
+        });
     }
 }

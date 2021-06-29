@@ -58,7 +58,7 @@
                         android:text="@string/veg"
                         android:textColor="@color/colorText"
                         android:textSize="14sp"
-                        app:drawableStartCompat="@drawable/vegicon"/>
+                        android:drawableStart="@drawable/vegicon"/>
                     <TextView
                             android:id="@+id/serviceProviderCardNonVegTextView"
                             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
                             android:textColor="@color/colorText"
                             android:textSize="14sp"
                             android:layout_marginStart="6dp"
-                            app:drawableStartCompat="@drawable/nonvegicon"/>
+                            android:drawableStart="@drawable/nonvegicon"/>
                 </LinearLayout>
 
                 <TextView

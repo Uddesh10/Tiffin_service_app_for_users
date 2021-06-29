@@ -1,5 +1,6 @@
 package com.uddesh.tiffinserviceapp.Activity;
 
+import android.content.Intent;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -8,21 +9,38 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import com.uddesh.tiffinserviceapp.DataModels.LoginModel;
+import com.uddesh.tiffinserviceapp.DataModels.SignupModel;
 import com.uddesh.tiffinserviceapp.Helpers.GenericTextWatcher;
 import com.uddesh.tiffinserviceapp.Helpers.OtpVerification;
+import com.uddesh.tiffinserviceapp.Helpers.SharedPreferencesHelper;
 import com.uddesh.tiffinserviceapp.Helpers.ToastHelper;
 import com.uddesh.tiffinserviceapp.R;
+import com.uddesh.tiffinserviceapp.Repository.RetrofitViewModel;
 
 public class MainActivity extends AppCompatActivity {
-    private ImageView logo_image_imageview;
     private  Button sign_up_button, login_button, signup_up_form_signup_button, login_form_login_button, otp_verify_button;
-    private  TextView didnt_receive_code_textview , app_name_text_view, or_text_view, login_form_signup_textview ,sign_up_form_already_have_account_textview, sign_up_form_login_textview, otp_mobile_textview , resend_code_textview , login_form_dont_have_account_textview;
+    private  TextView didnt_receive_code_textview , or_text_view, login_form_signup_textview ,sign_up_form_already_have_account_textview, sign_up_form_login_textview, otp_mobile_textview , resend_code_textview , login_form_dont_have_account_textview;
     private  EditText signup_form_user_name_edit_text ,signup_form_full_name_edittext, sign_up_form_mobile_edit_text, signup_form_password_edit_text, login_form_username_edittext, login_form_password_edittext , otp_edittext1 ,otp_edittext4,otp_edittext5,otp_edittext2, otp_edittext3 ,otp_edittext6;
-    private final OtpVerification otpVerification = new OtpVerification(this);
-    private ToastHelper toastHelper = new ToastHelper(this);
+    private OtpVerification otpVerification;
+    private final ToastHelper toastHelper = new ToastHelper(this);
+    private RetrofitViewModel viewModel;
+    String username , fullName , password , mobileNo;
+    private SharedPreferencesHelper sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedPreferences = new SharedPreferencesHelper(this);
+        viewModel = new RetrofitViewModel(getApplication());
+        if(sharedPreferences.getSharedPreferences("loggedIn").equals("true"))
+        {
+            String username = sharedPreferences.getSharedPreferences("username");
+            String password = sharedPreferences.getSharedPreferences("password");
+            viewModel.userLogin(new LoginModel(username , password)).observe(this , result-> sharedPreferences.setSharedPreferences("authToken" , result));
+            Intent intent = new Intent(this , HomePageActivity.class);
+            startActivity(intent);
+            finish();
+        }
         setContentView(R.layout.activity_main);
         grantPermission();
         initializeComponent();
@@ -32,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
     // private functions
     private void initializeComponent()
     {
-        logo_image_imageview = findViewById(R.id.logo_image_view);
-        app_name_text_view = findViewById(R.id.app_name_text_view);
+        otpVerification = new OtpVerification(this);
         sign_up_button = findViewById(R.id.sign_up_button);
         login_button = findViewById(R.id.login_button);
         or_text_view = findViewById(R.id.or_text_view);
@@ -81,16 +98,77 @@ public class MainActivity extends AppCompatActivity {
         });
 
         signup_up_form_signup_button.setOnClickListener(v -> {
-            animateSignUpForm(0 , View.GONE);
-            animateOtpForm();
+            username = signup_form_user_name_edit_text.getText().toString();
+            password = signup_form_password_edit_text.getText().toString();
+            fullName = signup_form_full_name_edittext.getText().toString();
+            mobileNo = sign_up_form_mobile_edit_text.getText().toString();
+            if(username.equals("") || password.equals("")|| fullName.equals("") || mobileNo.length()!=10)
+            {
+                toastHelper.makeToast("Check entered credentials" , Toast.LENGTH_LONG);
+            }
+            else {
+                viewModel.userSignup(new SignupModel(username , fullName , password , mobileNo)).observe(this , result->{
+                    if(result)
+                    {
+                        animateSignUpForm(0 , View.GONE);
+                        animateOtpForm();
+                        otpVerification.sendVerificationCode(mobileNo);
+                    }
+                    else{
+                        toastHelper.makeToast("Username already taken" , Toast.LENGTH_LONG);
+                    }
+                });
+            }
         });
 
         login_form_login_button.setOnClickListener(v -> {
-
+            username = login_form_username_edittext.getText().toString();
+            password = login_form_password_edittext.getText().toString();
+            viewModel.userLogin(new LoginModel(username , password)).observe(this , token->{
+               if(token.equals(" "))
+               {
+                   toastHelper.makeToast("Invalid credentials" , Toast.LENGTH_LONG);
+               }
+               else {
+                   sharedPreferences.setSharedPreferences("username" , username);
+                   sharedPreferences.setSharedPreferences("password" , password);
+                   sharedPreferences.setSharedPreferences("authToken" , token);
+                   sharedPreferences.setSharedPreferences("loggedIn" , "true");
+                   Intent intent = new Intent(this , HomePageActivity.class);
+                   startActivity(intent);
+                   finish();
+               }
+            });
         });
 
         otp_verify_button.setOnClickListener(v -> {
-            toastHelper.makeToast("Verification successful" , Toast.LENGTH_LONG);
+            String otp = otp_edittext4.getText().toString()+
+                    otp_edittext1.getText().toString()+
+                    otp_edittext2.getText().toString()+
+                    otp_edittext3.getText().toString()+
+                    otp_edittext5.getText().toString()+
+                    otp_edittext6.getText().toString();
+            if(otp.length()!=6)
+                toastHelper.makeToast("Invalid code 1" , Toast.LENGTH_LONG);
+            else {
+                otpVerification.verifyCode(otp).observe(this , result->{
+                    if(result)
+                    {
+                        viewModel.userLogin(new LoginModel(username , password)).observe(this , token->{
+                            sharedPreferences.setSharedPreferences("username" , username);
+                            sharedPreferences.setSharedPreferences("password" , password);
+                            sharedPreferences.setSharedPreferences("authToken" , token);
+                            sharedPreferences.setSharedPreferences("loggedIn" , "true");
+                        });
+                        Intent intent = new Intent(getApplicationContext() , SetAddressActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else{
+                        toastHelper.makeToast("Invalid code" , Toast.LENGTH_LONG);
+                    }
+                });
+            }
         });
 
         sign_up_form_login_textview.setOnClickListener(view -> {
