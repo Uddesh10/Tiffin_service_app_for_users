@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             username = login_form_username_edittext.getText().toString();
             password = login_form_password_edittext.getText().toString();
             viewModel.userLogin(new LoginModel(username , password)).observe(this , result->{
-               if(result.equals(" "))
+               if(result==null)
                {
                    toastHelper.makeToast("Invalid credentials" , Toast.LENGTH_LONG);
                }

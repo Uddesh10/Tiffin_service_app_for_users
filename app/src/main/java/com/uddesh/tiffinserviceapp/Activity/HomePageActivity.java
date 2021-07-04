@@ -1,8 +1,8 @@
 package com.uddesh.tiffinserviceapp.Activity;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -20,9 +20,7 @@ import com.uddesh.tiffinserviceapp.R;
 
 public class HomePageActivity extends FragmentActivity {
     private ViewPager2 viewPager;
-    private FragmentStateAdapter pagerAdapter;
     private TabLayout tabLayout;
-    private TextView homepageTabTextView;
     private ImageView homepageTabSettingsImageView;
     final int[] tabDrawables = {R.drawable.ic_home , R.drawable.ic_search};
     private SharedPreferencesHelper sharedPreferences;
@@ -41,19 +39,18 @@ public class HomePageActivity extends FragmentActivity {
     {
         toast = new ToastHelper(this);
         viewPager = findViewById(R.id.view_pager);
-        pagerAdapter = new HomepagePagerAdapter(this);
+        FragmentStateAdapter pagerAdapter = new HomepagePagerAdapter(this);
         viewPager.setAdapter(pagerAdapter);
         tabLayout = findViewById(R.id.tab_layout);
         homepageTabSettingsImageView = findViewById(R.id.homepageTabSettingsImageView);
-        homepageTabTextView = findViewById(R.id.homepageTabTextview);
+        TextView homepageTabTextView = findViewById(R.id.homepageTabTextview);
         sharedPreferences = new SharedPreferencesHelper(this);
         String username = "Welcome!\n"+sharedPreferences.getSharedPreferences("username");
         homepageTabTextView.setText(username);
-        homepageTabSettingsImageView.setOnClickListener(v->{
-            openMenu();
-        });
+        homepageTabSettingsImageView.setOnClickListener(v-> openMenu());
     }
 
+    @SuppressLint("NonConstantResourceId")
     private void openMenu() {
         PopupMenu popupMenu = new PopupMenu(this , homepageTabSettingsImageView);
         popupMenu.setOnMenuItemClickListener(item -> {

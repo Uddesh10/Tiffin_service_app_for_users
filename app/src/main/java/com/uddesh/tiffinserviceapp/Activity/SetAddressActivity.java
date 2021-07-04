@@ -40,7 +40,6 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
     private MapboxMap mapboxMap;
     private Symbol symbol;
     private EditText setAddressTextView;
-    private Button setAddressButton;
     private SharedPreferencesHelper sharedPreferences;
     private RetrofitViewModel viewModel;
     private String location;
@@ -57,7 +56,7 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
         setAddressMapView.onCreate(savedInstanceState);
         setAddressMapView.getMapAsync(this);
         setAddressTextView = findViewById(R.id.setAddressTextView);
-        setAddressButton = findViewById(R.id.setAddressButton);
+        Button setAddressButton = findViewById(R.id.setAddressButton);
         toast = new ToastHelper(this);
         setAddressButton.setOnClickListener(view -> {
             location = setAddressTextView.getText().toString();

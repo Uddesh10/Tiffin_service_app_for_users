@@ -94,18 +94,16 @@ public class SubscribedServiceActivity extends AppCompatActivity {
                 toast.makeToast("Something went wrong" , Toast.LENGTH_LONG);
             }
         }));
-        subscribedServiceRenewButton.setOnClickListener(v -> {
-            viewModel.renewService(id , Integer.parseInt(days)+30).observe(this , result->{
-                if(result)
-                {
-                    toast.makeToast("Renewed successfully" , Toast.LENGTH_LONG);
-                    startHomepageIntent();
-                }
-                else{
-                    toast.makeToast("Provider has discontinued this service" , Toast.LENGTH_LONG);
-                }
-            });
-        });
+        subscribedServiceRenewButton.setOnClickListener(v -> viewModel.renewService(id , Integer.parseInt(days)+30).observe(this , result->{
+            if(result)
+            {
+                toast.makeToast("Renewed successfully" , Toast.LENGTH_LONG);
+                startHomepageIntent();
+            }
+            else{
+                toast.makeToast("Provider has discontinued this service" , Toast.LENGTH_LONG);
+            }
+        }));
         subscribedServiceResumeButton.setOnClickListener(v -> viewModel.updateActive(id , true).observe(this , result->{
             if(result)
             {
