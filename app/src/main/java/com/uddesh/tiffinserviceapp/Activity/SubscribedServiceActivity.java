@@ -1,6 +1,7 @@
 package com.uddesh.tiffinserviceapp.Activity;
 
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,8 @@ public class SubscribedServiceActivity extends AppCompatActivity {
     private RetrofitViewModel viewModel;
     private ToastHelper toast;
     private PicassoRepository picasso;
+    private String days;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +64,7 @@ public class SubscribedServiceActivity extends AppCompatActivity {
     private void updateUI(SubscribedServiceDetailsModel result) {
         String logoImage = result.getLogoimage();
         String foodImage = result.getFoodimage();
-        String days = result.getDaysremaining()+"";
+        days = result.getDaysremaining()+"";
         picasso.getLogoImage(logoImage , subscribedServiceLogoImageView);
         picasso.getFoodImage(foodImage , subscribedServiceTabImageView);
         subscribedServiceProviderNameTextView.setText(result.getProvidername());
@@ -85,23 +88,41 @@ public class SubscribedServiceActivity extends AppCompatActivity {
             if(result)
             {
                 toast.makeToast("Service paused" , Toast.LENGTH_LONG);
-                finish();
+                startHomepageIntent();
             }
             else{
                 toast.makeToast("Something went wrong" , Toast.LENGTH_LONG);
             }
         }));
         subscribedServiceRenewButton.setOnClickListener(v -> {
+            viewModel.renewService(id , Integer.parseInt(days)+30).observe(this , result->{
+                if(result)
+                {
+                    toast.makeToast("Renewed successfully" , Toast.LENGTH_LONG);
+                    startHomepageIntent();
+                }
+                else{
+                    toast.makeToast("Provider has discontinued this service" , Toast.LENGTH_LONG);
+                }
+            });
         });
         subscribedServiceResumeButton.setOnClickListener(v -> viewModel.updateActive(id , true).observe(this , result->{
             if(result)
             {
                 toast.makeToast("Service resumed" , Toast.LENGTH_LONG);
-                finish();
+                startHomepageIntent();
+
             }
             else{
                 toast.makeToast("Something went wrong" , Toast.LENGTH_LONG);
             }
         }));
+    }
+
+    private void startHomepageIntent(){
+        Intent intent = new Intent(this , HomePageActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 }

@@ -45,23 +45,21 @@ public class RetrofitRepository {
         return data;
     }
 
-    public MutableLiveData<String> userLogin(LoginModel model)
+    public MutableLiveData<LoggedInDataModel> userLogin(LoginModel model)
     {
-        MutableLiveData<String> data = new MutableLiveData<>();
-        retrofitHelper.apiCalls.userLogin(model).enqueue(new Callback<ResponseBody>() {
+        MutableLiveData<LoggedInDataModel> data = new MutableLiveData<>();
+        retrofitHelper.apiCalls.userLogin(model).enqueue(new Callback<LoggedInDataModel>() {
             @Override
-            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                try {
-                    if(response.isSuccessful())
-                        data.setValue(response.body().string());
+            public void onResponse(@NonNull Call<LoggedInDataModel> call, @NonNull Response<LoggedInDataModel> response) {
+                    if(response.isSuccessful()){
+                        data.setValue(response.body());
+                    }
                     else
-                        data.setValue(" ");
-                } catch (IOException e) {
-                    e.printStackTrace();
+                        data.setValue(null);
+
                 }
-            }
             @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<LoggedInDataModel> call, @NonNull Throwable t) {
                 data.setValue(null);
             }
         });
@@ -91,10 +89,10 @@ public class RetrofitRepository {
         return data;
     }
 
-    public MutableLiveData<Boolean> addSubscription(AddSubscriptionModel model , String authToken)
+    public MutableLiveData<Boolean> addSubscription(String username,AddSubscriptionModel model , String authToken)
     {
         MutableLiveData<Boolean> data = new MutableLiveData<>();
-        retrofitHelper.apiCalls.addSubscription(model , authToken).enqueue(new Callback<ResponseBody>() {
+        retrofitHelper.apiCalls.addSubscription(username ,model , authToken).enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                 if(response.isSuccessful())

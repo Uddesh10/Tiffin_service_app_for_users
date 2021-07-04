@@ -1,6 +1,7 @@
 package com.uddesh.tiffinserviceapp.Activity;
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private RetrofitViewModel viewModel;
     String username , fullName , password , mobileNo;
     private SharedPreferencesHelper sharedPreferences;
+    private String otpText;
+    private boolean loginFromLoginPage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         {
             String username = sharedPreferences.getSharedPreferences("username");
             String password = sharedPreferences.getSharedPreferences("password");
-            viewModel.userLogin(new LoginModel(username , password)).observe(this , result-> sharedPreferences.setSharedPreferences("authToken" , result));
+            viewModel.userLogin(new LoginModel(username , password)).observe(this , result-> sharedPreferences.setSharedPreferences("authToken" , result.getToken()));
             Intent intent = new Intent(this , HomePageActivity.class);
             startActivity(intent);
             finish();
@@ -110,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 viewModel.userSignup(new SignupModel(username , fullName , password , mobileNo)).observe(this , result->{
                     if(result)
                     {
+                        otpText = "Please enter the verification code\n sent to "+mobileNo;
                         animateSignUpForm(0 , View.GONE);
                         animateOtpForm();
                         otpVerification.sendVerificationCode(mobileNo);
@@ -124,19 +129,17 @@ public class MainActivity extends AppCompatActivity {
         login_form_login_button.setOnClickListener(v -> {
             username = login_form_username_edittext.getText().toString();
             password = login_form_password_edittext.getText().toString();
-            viewModel.userLogin(new LoginModel(username , password)).observe(this , token->{
-               if(token.equals(" "))
+            viewModel.userLogin(new LoginModel(username , password)).observe(this , result->{
+               if(result.equals(" "))
                {
                    toastHelper.makeToast("Invalid credentials" , Toast.LENGTH_LONG);
                }
                else {
-                   sharedPreferences.setSharedPreferences("username" , username);
-                   sharedPreferences.setSharedPreferences("password" , password);
-                   sharedPreferences.setSharedPreferences("authToken" , token);
-                   sharedPreferences.setSharedPreferences("loggedIn" , "true");
-                   Intent intent = new Intent(this , HomePageActivity.class);
-                   startActivity(intent);
-                   finish();
+                   otpVerification.sendVerificationCode(result.getMobileno());
+                   loginFromLoginPage = true;
+                   animateOtpForm();
+                   animateLoginForm(0 , View.GONE);
+
                }
             });
         });
@@ -149,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     otp_edittext5.getText().toString()+
                     otp_edittext6.getText().toString();
             if(otp.length()!=6)
-                toastHelper.makeToast("Invalid code 1" , Toast.LENGTH_LONG);
+                toastHelper.makeToast("Invalid code" , Toast.LENGTH_LONG);
             else {
                 otpVerification.verifyCode(otp).observe(this , result->{
                     if(result)
@@ -157,10 +160,16 @@ public class MainActivity extends AppCompatActivity {
                         viewModel.userLogin(new LoginModel(username , password)).observe(this , token->{
                             sharedPreferences.setSharedPreferences("username" , username);
                             sharedPreferences.setSharedPreferences("password" , password);
-                            sharedPreferences.setSharedPreferences("authToken" , token);
+                            sharedPreferences.setSharedPreferences("authToken" , token.getToken());
                             sharedPreferences.setSharedPreferences("loggedIn" , "true");
                         });
-                        Intent intent = new Intent(getApplicationContext() , SetAddressActivity.class);
+                        Intent intent;
+                        if(loginFromLoginPage) {
+                            intent = new Intent(this, HomePageActivity.class);
+                        }
+                        else{
+                            intent = new Intent(getApplicationContext(), SetAddressActivity.class);
+                        }
                         startActivity(intent);
                         finish();
                     }
@@ -182,7 +191,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         resend_code_textview.setOnClickListener(view -> {
-
+            otpVerification.sendVerificationCode(mobileNo);
+            otpTimer();
         });
 
     }
@@ -238,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         otp_edittext2.setVisibility(View.VISIBLE);
         otp_edittext6.setVisibility(View.VISIBLE);
         otp_mobile_textview.setVisibility(View.VISIBLE);
+        otp_mobile_textview.setText(otpText);
         otp_verify_button.setVisibility(View.VISIBLE);
         resend_code_textview.setVisibility(View.VISIBLE);
         didnt_receive_code_textview.setVisibility(View.VISIBLE);
@@ -251,6 +262,7 @@ public class MainActivity extends AppCompatActivity {
         resend_code_textview.animate().alpha(1).setDuration(500);
         otp_verify_button.animate().alpha(1).setDuration(500);
         didnt_receive_code_textview.animate().alpha(1).setDuration(500);
+        otpTimer();
     }
 
     private void grantPermission()
@@ -260,6 +272,23 @@ public class MainActivity extends AppCompatActivity {
             // Requesting the permission
             ActivityCompat.requestPermissions(MainActivity.this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
+    }
+
+    private void otpTimer()
+    {
+        resend_code_textview.setClickable(false);
+        new CountDownTimer(60000 , 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                String resend = "Resend code("+millisUntilFinished/1000+")";
+                resend_code_textview.setText(resend);
+            }
+
+            @Override
+            public void onFinish() {
+                resend_code_textview.setClickable(true);
+            }
+        }.start();
     }
 
     // public functions

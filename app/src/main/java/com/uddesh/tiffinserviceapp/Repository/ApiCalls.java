@@ -14,13 +14,13 @@ public interface ApiCalls {
     Call<ResponseBody> userSignup(@Body SignupModel model);
 
     @POST("userlogin")
-    Call<ResponseBody> userLogin(@Body LoginModel model);
+    Call<LoggedInDataModel> userLogin(@Body LoginModel model);
 
     @PUT("userlocation")
     Call<ResponseBody> updateUserLocation(@Query("username") String username , @Body UserLocationModel model , @Header("Authorization") String token);
 
     @POST("addsubscription")
-    Call<ResponseBody> addSubscription(@Body AddSubscriptionModel model , @Header("Authorization") String token);
+    Call<ResponseBody> addSubscription(@Query("username") String username , @Body AddSubscriptionModel model , @Header("Authorization") String token);
 
     @PUT("updateactive")
     Call<ResponseBody> updateActive(@Query("username") String username , @Query("id") int id , @Query("active") boolean active , @Header("Authorization") String token);

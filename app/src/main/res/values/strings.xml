@@ -27,5 +27,6 @@
     <string name="active">Active</string>
     <string name="enter_address">Enter address</string>
     <string name="set_location">Set Location</string>
-    <string name="mapbox_access_token">pk.eyJ1IjoidWRkZXNoMTkiLCJhIjoiY2twc2o2dXJiMGl1MjMxbW5oMHJuMjl6MCJ9.ONEYAfFCVRVUl8dD9xL-TA</string>
+    <string name="logout">Logout</string>
+    <string name="change_location">Change location</string>
 </resources>

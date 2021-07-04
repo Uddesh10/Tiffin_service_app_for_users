@@ -23,7 +23,7 @@ public class RetrofitViewModel extends AndroidViewModel {
         return repository.userSignup(model);
     }
 
-    public MutableLiveData<String> userLogin(LoginModel model){
+    public MutableLiveData<LoggedInDataModel> userLogin(LoginModel model){
         return repository.userLogin(model);
     }
 
@@ -36,7 +36,8 @@ public class RetrofitViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> addSubscription(AddSubscriptionModel model)
     {
         String authToken = sharedPreferences.getSharedPreferences("authToken");
-        return repository.addSubscription(model , "Bearer "+authToken);
+        String username = sharedPreferences.getSharedPreferences("username");
+        return repository.addSubscription(username, model , "Bearer "+authToken);
     }
     public MutableLiveData<Boolean> updateActive(int id , boolean active)
     {

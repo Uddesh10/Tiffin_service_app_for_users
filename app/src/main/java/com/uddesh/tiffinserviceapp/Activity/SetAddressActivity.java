@@ -25,6 +25,7 @@ import com.mapbox.mapboxsdk.plugins.annotation.Symbol;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolManager;
 import com.mapbox.mapboxsdk.plugins.annotation.SymbolOptions;
 import com.mapbox.mapboxsdk.utils.BitmapUtils;
+import com.uddesh.tiffinserviceapp.BuildConfig;
 import com.uddesh.tiffinserviceapp.DataModels.UserLocationModel;
 import com.uddesh.tiffinserviceapp.Helpers.SharedPreferencesHelper;
 import com.uddesh.tiffinserviceapp.Helpers.ToastHelper;
@@ -48,7 +49,7 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
+        Mapbox.getInstance(this, BuildConfig.MapBoxApiKey);
         setContentView(R.layout.activity_set_address);
         sharedPreferences = new SharedPreferencesHelper(this);
         viewModel = new RetrofitViewModel(getApplication());
@@ -61,10 +62,10 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
         setAddressButton.setOnClickListener(view -> {
             location = setAddressTextView.getText().toString();
             String username = sharedPreferences.getSharedPreferences("username");
-            if(location.equals("")) {
+            if(!location.equals("")) {
                 viewModel.updateUserLocation(new UserLocationModel(location, latitude, longitude, username)).observe(this, result -> {
-                    if (result) {
-                        toast.makeToast("Account created successfully", Toast.LENGTH_LONG);
+                    if (result!=null && result) {
+                        toast.makeToast("Success", Toast.LENGTH_LONG);
                         Intent intent = new Intent(this, HomePageActivity.class);
                         startActivity(intent);
                         finish();
@@ -73,7 +74,9 @@ public class SetAddressActivity extends AppCompatActivity implements OnMapReadyC
                     }
                 });
             }
-
+            else{
+              toast.makeToast("Enter the address" , Toast.LENGTH_LONG);
+            }
         });
     }
     @Override

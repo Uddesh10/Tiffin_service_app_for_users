@@ -1,6 +1,7 @@
 package com.uddesh.tiffinserviceapp.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,6 @@ import com.uddesh.tiffinserviceapp.R;
 import com.uddesh.tiffinserviceapp.Repository.RetrofitViewModel;
 
 import java.util.List;
-
 
 public class HomeFragment extends Fragment {
 
@@ -51,12 +51,6 @@ public class HomeFragment extends Fragment {
         homeFragmentRecyclerAdapterInstance = new HomeFragmentRecyclerAdapter(getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager( getContext() ,LinearLayoutManager.VERTICAL , false));
         recyclerView.setAdapter(homeFragmentRecyclerAdapterInstance);
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
         viewModel.getSubscribedService().observe(getActivity() , result->{
             if(result!=null)
             {
