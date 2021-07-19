@@ -60,13 +60,14 @@ public class IndividualServiceProviderActivity extends AppCompatActivity {
         String logoImage = result.getLogoimage();
         String foodImage = result.getServices().get(0).getFoodimage();
         String distance = result.getDistance()+" Km";
+        String contact = "Contact No. :"+result.getContactno();
         String timings = result.getLunchtimings()+"\n"+result.getDinnertimings();
         picasso.getFoodImage(foodImage , individualServiceProviderTabImageView);
         picasso.getLogoImage(logoImage , individualServiceProviderLogoImageView);
         individualServiceProviderDistanceTextView.setText(distance);
         individualServiceProviderNameTextView.setText(result.getProvidername());
         individualServiceProviderLunchDinnerTextView.setText(result.getAvailability());
-        individualServiceProviderPhoneTextView.setText(result.getContactno());
+        individualServiceProviderPhoneTextView.setText(contact);
         individualServiceProviderDeliveryTimingsTextView.setText(timings);
         individualServiceProviderVegTextView.setVisibility(View.VISIBLE);
         if(result.isVegnonveg())

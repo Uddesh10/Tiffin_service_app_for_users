@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                else {
                    otpVerification.sendVerificationCode(result.getMobileno());
                    loginFromLoginPage = true;
+                   otpText = "Please enter the verification code\n sent to "+result.getMobileno();
                    animateOtpForm();
                    animateLoginForm(0 , View.GONE);
 

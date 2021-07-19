@@ -12,12 +12,12 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.SetAddressActivity"/>
-        <activity android:name=".Activity.IndividualServiceActivity" />
-        <activity android:name=".Activity.IndividualServiceProviderActivity" />
-        <activity android:name=".Activity.SubscribedServiceActivity" />
-        <activity android:name=".Activity.HomePageActivity" />
-        <activity android:name=".Activity.MainActivity">
+        <activity android:name=".Activity.SetAddressActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.IndividualServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.IndividualServiceProviderActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.SubscribedServiceActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.HomePageActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
